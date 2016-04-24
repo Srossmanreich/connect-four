@@ -1,24 +1,17 @@
-$(document).ready(function() {
-
-  $('div').on("click", function(event) {
-    var x = $(this).data('x-pos');
-    var y = $(this).data('y-pos');
-    var color = $(this).css('color');
-  })
-
-
-});
-
-
-
-
 function checker(x, y, color) {
-  var rowColor = $('div').find("[data-x-pos='" + x + "']").map(function(item) { return item.css("color") });
-  var columnColor = $('div').find("[data-y-pos='" + y + "']").map(function(item) { return item.css("color") });
+  var rowColor = $('#board').find("[data-x-pos='" + x + "']").map(function(item) { return item.css("color") });
+  var columnColor = $('#board').find("[data-y-pos='" + y + "']").map(function(item) { return item.css("color") });
   var rightDiagonalColor = [];
   var leftDiagonalColor = [];
-  var divArr = $('div');
+  var divArr = [];
   var indicator = false;
+  debugger;
+
+  $('#board').forEach(function(col) {
+    for(var i = 0; i < col.length; i++) {
+      divArr.push(col[i]);
+    }
+  });
 
   for(var i = 0; i < divArr.length; i++) {
     if((x - divArr[i].data('x-pos'))  ===  (y - divArr[i].data('y-pos'))) {
