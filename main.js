@@ -49,6 +49,7 @@ $(document).ready(function() {
 
     if( checker(x, y, color, divArr) ) {
       alert("you win!");
+      location.reload();
     }
 
   })
